@@ -22,10 +22,16 @@ public class CustomTableController {
   }
 
   @GetMapping("/view/{table}")
-  public List<Fruits> view(@PathVariable String table) {
+  public <T> List<T> view(@PathVariable String table) {
+  // public <T extends Map<String, Object>> List<T> view(@PathVariable String table) {
     List<Describe> d = customTableRepository.doSomeQuery(table);
     System.out.println(d);
 
     return customTableRepository.view(table);
+  }
+
+  @GetMapping("/insert/{table}")
+  public int insert(@PathVariable String table) {
+    return customTableRepository.create(table);
   }
 }
