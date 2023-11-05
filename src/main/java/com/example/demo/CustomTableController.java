@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -31,7 +32,7 @@ public class CustomTableController {
   }
 
   @GetMapping("/insert/{table}")
-  public int insert(@PathVariable String table) {
-    return customTableRepository.create(table);
+  public <T extends Map<String, Object>> int insert(@PathVariable String table, @RequestBody T obj) {
+    return customTableRepository.create(table, obj);
   }
 }

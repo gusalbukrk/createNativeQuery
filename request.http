@@ -1,0 +1,30 @@
+GET http://localhost:8081/insert/fruits
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "mango",
+  "color": "yellow"
+}
+
+###
+
+GET http://localhost:8081/insert/colors
+Content-Type: application/json
+
+{
+  "name": "green",
+  "hex": "00ff00",
+  "grade": 1
+}
+
+###
+
+GET http://localhost:8081/insert/languages
+Content-Type: application/json
+
+{
+  "name": "javascript",
+  "exp": 8
+}
+
